@@ -2,9 +2,9 @@ export default function createEmployeesObject(departmentName, employees) {
   let str = '';
   for (const employee of employees) {
     if (str === '') {
-      str += `'${employee}'`;
+      str += `${employee}`;
     } else {
-      str += `, '${employee}'`;
+      str += `, ${employee}`;
     }
   }
 
