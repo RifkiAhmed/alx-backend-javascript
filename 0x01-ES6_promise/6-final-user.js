@@ -14,8 +14,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
         status: photoResult.status,
         value: photoResult.status === 'fulfilled' ? photoResult.value : photoResult.reason,
       },
-    ])
-    .catch((error) => {
-      console.log(error);
-    });
+    ]);
 }
