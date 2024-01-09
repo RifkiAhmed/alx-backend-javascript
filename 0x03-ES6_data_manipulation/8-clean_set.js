@@ -4,6 +4,7 @@ export default function cleanSet(set, startString) {
     strings = [...set.values()]
       .filter((element) => element.startsWith(startString))
       .map((element) => element.substring(startString.length));
+    return strings.join('-');
   }
-  return strings.join('-');
+  return '';
 }
