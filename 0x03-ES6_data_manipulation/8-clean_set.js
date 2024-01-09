@@ -1,9 +1,9 @@
 export default function cleanSet(set, startString) {
-  let string = [];
+  let strings = [];
   if (set instanceof Set && typeof startString === 'string' && startString !== '') {
-    string = [...set]
+    strings = [...set.values()]
       .filter((element) => element.startsWith(startString))
       .map((element) => element.substring(startString.length));
   }
-  return string.join('-');
+  return strings.join('-');
 }
