@@ -99,7 +99,7 @@ function executeWork(employee: Director | Teacher): string {
 
 type Subjects = 'Math' | 'History';
 
-function teachClass(todayClass: Subjects) {
+function teachClass(todayClass: Subjects): string {
     return todayClass === 'Math' || todayClass === 'History'? 'Teaching ' + todayClass : '';
 }
 
