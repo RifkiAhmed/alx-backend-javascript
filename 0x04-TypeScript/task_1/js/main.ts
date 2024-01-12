@@ -85,6 +85,25 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Director();
 }
 
+function isDirector(employee: Director | Teacher): employee is Director {
+    return employee instanceof Director;
+}
+
+function executeWork(employee: Director | Teacher): string {
+    if (isDirector(employee)) {
+        return employee.workDirectorTasks();
+    } else {
+        return employee.workTeacherTasks();
+    }
+}
+
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects) {
+    return todayClass === 'Math' || todayClass === 'History'? 'Teaching ' + todayClass : '';
+}
+
+// Examples
 const teacher3: Teacher = {
     firstName: 'John',
     fullTimeEmployee: false,
@@ -126,3 +145,10 @@ console.log(studentClass1.displayName()); // -> Ahmed
 console.log(createEmployee(200)); // -> Teacher
 console.log(createEmployee(1000)); // -> Director
 console.log(createEmployee('$500')); // -> Director
+
+console.log(executeWork(createEmployee(200))); // -> Getting to work
+console.log(executeWork(createEmployee(1000))); // -> Getting to director tasks
+
+console.log(teachClass('Math')); // -> Teaching Math
+console.log(teachClass('History')); // -> Teaching History
+
