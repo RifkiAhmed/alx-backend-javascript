@@ -9,7 +9,7 @@ async function readDatabase(path) {
     fields.forEach((field) => {
       const fieldStudents = students.filter((student) => student.split(',')[3] === field);
       const firstNames = fieldStudents.map((student) => student.split(',')[0]);
-      FieldsObj[field]= firstNames;
+      FieldsObj[field] = firstNames;
     });
     return FieldsObj;
   } catch (err) {

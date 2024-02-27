@@ -1,6 +1,6 @@
 const express = require('express');
-import AppController from '../controllers/AppController';
-import StudentsController from '../controllers/StudentsController';
+const AppController = require('../controllers/AppController');
+const StudentsController = require('../controllers/StudentsController');
 
 const router = express.Router();
 
