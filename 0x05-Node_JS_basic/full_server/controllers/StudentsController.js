@@ -30,8 +30,8 @@ class StudentsController {
         response.send(error.message);
       });
     } else {
-      response.status(500);
-      response.send('Major parameter must be CS or SWE');
+        response.status(500);
+        response.send('Major parameter must be CS or SWE');
     }
   }
 }
