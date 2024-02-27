@@ -2,7 +2,7 @@ import readDatabase from '../utils';
 
 class StudentsController {
   static getAllStudents(request, response){
-    readDatabase("database.csv")
+    readDatabase(process.argv[2])
     .then((data) => {
       response.status(200);
       let message = "";
@@ -20,7 +20,7 @@ class StudentsController {
   static getAllStudentsByMajor(request, response) {
     const { major } = request.params;
     if (major && (major === 'CS' || major === 'SWE')) {
-      readDatabase("database.csv")
+      readDatabase(process.argv[2])
       .then((data) => {
         response.status(200);
         response.send(`List: ${data[major].join(', ')}`);
