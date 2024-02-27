@@ -1,37 +1,37 @@
 import readDatabase from '../utils';
 
 class StudentsController {
-  static getAllStudents(request, response){
+  static getAllStudents(req, res){
     readDatabase(process.argv[2])
     .then((data) => {
-      response.status(200);
+      res.status(200);
       let message = "";
       for (let field in data) {
         message += `\nNumber of students in ${field}: ${data[field].length}. List: ${data[field].join(', ')}`;
       }
-      response.send(`This is the list of our students${message}`);
+      res.send(`This is the list of our students${message}`);
     })
     .catch((error) => {
-      response.status(500);
-      response.send(error.message);
+      res.status(500);
+      res.send(error.message);
     });
   }
 
-  static getAllStudentsByMajor(request, response) {
-    const { major } = request.params;
+  static getAllStudentsByMajor(req, res) {
+    const { major } = req.params;
     if (major && (major === 'CS' || major === 'SWE')) {
       readDatabase(process.argv[2])
       .then((data) => {
-        response.status(200);
-        response.send(`List: ${data[major].join(', ')}`);
+        res.status(200);
+        res.send(`List: ${data[major].join(', ')}`);
       })
       .catch((error) => {
-        response.status(500);
-        response.send(error.message);
+        res.status(500);
+        res.send(error.message);
       });
     } else {
-      response.status(500);
-      response.send('Major parameter must be CS or SWE');
+      res.status(500);
+      res.send('Major parameter must be CS or SWE');
     }
   }
 }
