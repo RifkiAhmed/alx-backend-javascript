@@ -14,9 +14,9 @@ async function countStudents(path) {
       result += `\nNumber of students in ${field}: ${numberOfStudents}. List: ${firstNames}`;
     });
     return result;
-    } catch (err) {
-      throw new Error('Cannot load the database');
-    }
+  } catch (err) {
+    throw new Error('Cannot load the database');
+  }
 }
 
 const app = http.createServer(async (request, response) => {
