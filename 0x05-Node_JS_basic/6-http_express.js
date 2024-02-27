@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', (_, res) => {
+app.get('/', (res, res) => {
   res.send('Hello Holberton School!');
 });
 
