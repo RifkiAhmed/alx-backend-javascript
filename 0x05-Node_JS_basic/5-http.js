@@ -19,9 +19,6 @@ async function countStudents(path) {
   }
 }
 
-module.exports = countStudents;
-
-
 const app = http.createServer(async (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/plain' });
   if (request.url === '/') {
@@ -29,9 +26,9 @@ const app = http.createServer(async (request, response) => {
   } else if (request.url === '/students') {
     try {
       const studentsData = await countStudents(process.argv[2]);
-      response.end('This is the list of our students\n' + studentsData);
+      response.end(`This is the list of our students\n${studentsData}`);
     } catch (error) {
-        response.end(error);
+        response.end(`This is the list of our students\n${error.message}`);
     };
   }
 });
