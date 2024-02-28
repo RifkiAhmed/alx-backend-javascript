@@ -5,9 +5,11 @@ const StudentsController = {
     readDatabase(process.argv[2])
       .then((data) => {
         response.status(200);
-        let message = "";
-        for (let field in data) {
-          message += `\nNumber of students in ${field}: ${data[field].length}. List: ${data[field].join(', ')}`;
+        let message = '';
+        for (const field in data) {
+          if (data.hasOwnProperty(field)) {
+            message += `\nNumber of students in ${field}: ${data[field].length}. List: ${data[field].join(', ')}`;
+          }
         }
         response.send(`This is the list of our students${message}`);
       })
@@ -33,7 +35,7 @@ const StudentsController = {
       response.status(500);
       response.send('Major parameter must be CS or SWE');
     }
-  }
+  },
 };
 
 module.exports = StudentsController;
