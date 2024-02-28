@@ -7,7 +7,7 @@ const StudentsController = {
         response.status(200);
         let message = '';
         for (const field in data) {
-          if (data.hasOwnProperty(field)) {
+          if (Object.prototype.hasOwnProperty.call(data, field)) {
             message += `\nNumber of students in ${field}: ${data[field].length}. List: ${data[field].join(', ')}`;
           }
         }
