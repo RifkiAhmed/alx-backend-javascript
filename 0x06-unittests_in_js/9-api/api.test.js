@@ -21,7 +21,6 @@ describe('Index page', () => {
   it('request /cart/hello route should return 404 not found error', (done) => {
     request.get('http://localhost:7865/cart/hello', (error, response, body) => {
       expect(response.statusCode).to.equal(404);
-      expect(body).to.equal('Welcome to the payment system');
       done();
     });
   });
