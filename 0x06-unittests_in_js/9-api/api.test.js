@@ -8,7 +8,7 @@ describe('Index page', () => {
       expect(body).to.equal('Welcome to the payment system');
       done();
     });
-  })
+  });
 
   it('request /cart/12 route should return 200 status code', (done) => {
     request.get('http://localhost:7865/cart/12', (error, response, body) => {
@@ -16,7 +16,7 @@ describe('Index page', () => {
       expect(body).to.equal('Payment methods for cart 12');
       done();
     });
-  })
+  });
 
   it('request /cart/hello route should return 404 not found error', (done) => {
     request.get('http://localhost:7865/cart/hello', (error, response, body) => {
@@ -24,5 +24,5 @@ describe('Index page', () => {
       expect(body).to.equal('Welcome to the payment system');
       done();
     });
-  })
+  });
 })
