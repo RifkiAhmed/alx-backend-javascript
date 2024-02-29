@@ -10,7 +10,7 @@ describe('Index page', () => {
     });
   });
 
-  it('request /cart/12 route should return 200 status code', (done) => {
+  it('Cart page', (done) => {
     request.get('http://localhost:7865/cart/12', (error, response, body) => {
       expect(response.statusCode).to.equal(200);
       expect(body).to.equal('Payment methods for cart 12');
